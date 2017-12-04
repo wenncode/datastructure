@@ -1,4 +1,3 @@
-
 public class Paciente {
 	
 	private String nome;
@@ -35,8 +34,9 @@ public class Paciente {
 	public void setAnoNascimento(int anoNascimento) {
 		this.anoNascimento = anoNascimento;
 	}
-	public String toString(Paciente pessoa) {
-		return "Nome do paciente: " + pessoa.getNome() + "CPF do paciente: " + pessoa.getCpf() + "Ano de nascimento do paciente: " + pessoa.getAnoNascimento();
+	public String toString() {
+		return "Nome do paciente: " + getNome() + "\nCPF do paciente: " + getCpf() + "1"
+				+ "\nAno de nascimento do paciente: " + getAnoNascimento();
 		
 	}
 	
