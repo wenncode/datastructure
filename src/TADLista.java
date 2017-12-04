@@ -3,12 +3,38 @@ public class TADLista {
 	
 	protected Nodo primeiro;
 	protected Nodo ultimo;
+	protected NodoPaciente primeiro1;
+	protected NodoPaciente ultimo1;
 	
 	public TADLista() {
 		this.primeiro = null;
 		this.ultimo = null;
+		this.primeiro1 = null;
+		this.ultimo1 = null;
 	}
-	
+	public void addPacientBegin(Paciente pessoa) {
+		NodoPaciente novoNodo = new NodoPaciente(pessoa);
+		if (primeiro1==null) {
+			primeiro1 = novoNodo;
+			ultimo1 = novoNodo;
+		} else {
+			ultimo1.proximo1 = novoNodo;
+			novoNodo.anterior1 = ultimo1;
+			ultimo1 = novoNodo;
+		}
+	}
+	public void addPacienteEnd(Paciente pessoa) {
+		NodoPaciente novoNodo = new NodoPaciente(pessoa);
+		if (primeiro1==null) {
+			primeiro1 = novoNodo;
+			ultimo1 = novoNodo;
+		} else {
+			ultimo1.proximo1 = novoNodo;
+			novoNodo.anterior1 = ultimo1;
+			ultimo1 = novoNodo;
+		}
+		
+	}
 	public void addEnd(Atendimento dado) {
 		Nodo novoNodo = new Nodo(dado);
 		if (primeiro==null) {
