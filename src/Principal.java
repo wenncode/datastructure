@@ -1,6 +1,8 @@
 import java.io.*;
+import java.util.Scanner;
 public class Principal {
 	static BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
+	static Scanner scan1 = new Scanner(System.in);
 	static TADFila filaInicial = new TADFila();
 	static TADFila filaPrioridade1 = new TADFila();
 	static TADFila filaPrioridade2 = new TADFila();
@@ -14,10 +16,8 @@ public class Principal {
 		int sair = 0;
 		do {
 			desenhaMenu();
-			System.out.println("[ VOCÊ DESEJA CONTINUAR NO SISTEMA? ]");
-			System.out.println("[ [1] SIM || [2] NÃO ]");
-			sair = scan.read();
-		} while (sair != 1);
+			sair = scan1.nextInt();
+		} while (sair != 1)	;
 	}
 	public static Paciente novaChegada() {
 		String nome;
@@ -60,6 +60,7 @@ public class Principal {
 	public static void desenhaMenu() throws IOException, InterruptedException {
 		int menuOp = 0;
 		do { 
+			menuOp = 0;
 			System.out.println("SELECIONE A OPÃ‡ÃƒO DESEJADA: ");
 			System.out.println("[ [1] CADASTRAR NOVO PACIENTE ]");
 			System.out.println("[ [2] PESQUISAR PACIENTE ]");
@@ -68,14 +69,12 @@ public class Principal {
 			System.out.println("[ [5] CHAMAR PACIENTE PARA CONSULTA ]");
 			System.out.println("[ [6] LIBERAR PACIENTE ]");
 			System.out.println("[ [7] RELATÃ“RIOS ]");
-			menuOp = scan.read();
-			if (menuOp < 1 || menuOp > 7) {
-				Runtime.getRuntime().exec("cls");
+			menuOp = scan1.nextInt();
+			System.out.println(menuOp);
+			if ((menuOp < 1) || (menuOp > 7)) {
 				System.out.println("[ INPUT INVÃ�LIDO. SISTEMA PARADO POR 2 SEGUNDOS.]");
-				Thread.currentThread();
-				Thread.sleep(2000);
 			}				
-		} while (menuOp >=1 && menuOp <= 7);
+		} while (menuOp < 1 || menuOp > 7);
 		if (menuOp == 1) {
 			novaChegada();
 		} else if (menuOp == 2) {
