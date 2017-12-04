@@ -28,6 +28,21 @@ public class TADListaPacientes {
 			first = novoNodo;
 		}
 	}
+	public Paciente searchByIDPaciente(String id) {
+		NodoPaciente aux = first;
+		while (aux != null) {
+			if(aux.pessoa.getCpf().equals(id)) {
+				return aux.pessoa;
+			} else {
+				aux = aux.next;
+			}
+		}
+		return null;
+	}
+	
+	
+	
+	
 	
 }
 	

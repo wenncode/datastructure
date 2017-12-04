@@ -35,7 +35,10 @@ public class Paciente {
 	public void setAnoNascimento(int anoNascimento) {
 		this.anoNascimento = anoNascimento;
 	}
-	
+	public String toString(Paciente pessoa) {
+		return "Nome do paciente: " + pessoa.getNome() + "CPF do paciente: " + pessoa.getCpf() + "Ano de nascimento do paciente: " + pessoa.getAnoNascimento();
+		
+	}
 	
 
 }

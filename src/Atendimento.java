@@ -17,6 +17,7 @@ public class Atendimento {
 	private int pressaoSistolica;
 	private int pressaoDiastolica;
 	private int prioridade;
+
 	private String parecer;
 	BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
 	
@@ -104,6 +105,12 @@ public class Atendimento {
 	public void setParecer(String parecer) {
 		this.parecer = parecer;
 	}
+	public String toStringAtendimento(Atendimento at){
+			return "Prioridade: "+at.getPrioridade()+"Hora Chegada: "+at.getHoraChegada()+":"+at.getMinutoChegada()+
+					"Hora Atendimento: "+at.getHoraAtendimento()+":"+at.getMinutoAtendimento()+"Hora Saida: "+at.getHoraSaida()+":"+at.getMinutoSaida()+"Altura: "+at.getAltura()+
+					"Peso: "+at.getPeso()+"Pressão Diastólica: "+at.getPressaoDiastolica()+"Pressao Sistólica: "+at.getPressaoSistolica()+"Temperatura corporal: "+at.getTemperatura()+
+					"Parecer: "+at.getParecer();
+		}
 	
 	
 }

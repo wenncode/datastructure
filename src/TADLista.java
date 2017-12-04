@@ -47,7 +47,7 @@ public class TADLista {
 	}
 	
 	public Atendimento searchByPosition(int position) {
-		int count=0;
+		int count = 0;
 		Nodo aux = primeiro;
 		while (count!=position) {
 			aux=aux.proximo;
@@ -70,6 +70,18 @@ public class TADLista {
 			}
 		}
 		return null;
+	}
+	public int size() {
+		int count = 0;
+		Nodo aux = primeiro;
+		while (aux!=null) {
+			aux = aux.proximo;
+			count++;
+		}
+		return count;
+	}
+	public Atendimento retornaUltimo() {
+		return ultimo.dado;
 	}
 
 }
