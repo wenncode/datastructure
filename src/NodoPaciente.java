@@ -2,13 +2,13 @@
 public class NodoPaciente {
 
 	protected Paciente pessoa;	
-	protected NodoPaciente proximo1;
-	protected NodoPaciente anterior1;
+	protected NodoPaciente next;
+	protected NodoPaciente back;
 	
 	public NodoPaciente(Paciente pessoa){
 		this.pessoa = pessoa;
-		this.proximo1 = null;
-		this.anterior1 = null;
+		this.next = null;
+		this.back = null;
 	}
 	
 	

@@ -1,13 +1,14 @@
 public class TADListaPacientes {
+	
 	protected NodoPaciente first;
 	protected NodoPaciente last;
 	public TADListaPacientes() {
 		this.first = null;
 		this.last = null;
 	}
-	public void addBeginPacient(Paciente pessoa) {
+	public void addEndPacient(Paciente pessoa) {
 		NodoPaciente novoNodo = new NodoPaciente(pessoa);
-		if (first==null) {
+		if (first == null) {
 			first = novoNodo;
 			last = novoNodo;
 		} else {
@@ -16,11 +17,18 @@ public class TADListaPacientes {
 			last = novoNodo;
 		}
 	}
-	public void addLastPacient(Paciente pessoa) {
-		
+	public void addBeginPacient(Paciente pessoa) {
+		NodoPaciente novoNodo = new NodoPaciente (pessoa);
+		if (first == null) {
+			first = novoNodo;
+			last = novoNodo;
+		} else {
+			novoNodo.next = first;
+			first.back = novoNodo;
+			first = novoNodo;
+		}
 	}
 	
 }
 	
-
 
