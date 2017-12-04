@@ -32,11 +32,16 @@ public class Principal {
 			System.out.println("Digite o ano de nascimento do paciente: ");
 			anoNascimento = scan.read();
 			Paciente pessoa = new Paciente(nome, cpf, anoNascimento);
+			listaTodos.addLast(pessoa);
 			} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public static void novoAtendimento() {
+	public static void novoAtendimento() throws IOException {
+		System.out.println("[ Digite o CPF da pessoa a receber o Atendimento ] ");
+		String cpf = scan.readLine();
+		
+		
 		
 	}
 	public static void desenhaMenu() throws IOException, InterruptedException {
@@ -74,7 +79,7 @@ public class Principal {
 			liberarPaciente();
 		} else if (menuOp == 7) {
 			telaRelatorios();
-		}
-		
+		}		
 	}
+	
 }

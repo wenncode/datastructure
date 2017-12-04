@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Atendimento {
 
@@ -15,6 +18,7 @@ public class Atendimento {
 	private int pressaoDiastolica;
 	private int prioridade;
 	private String parecer;
+	BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
 	
 	public Paciente getPessoa() {
 		return pessoa;
@@ -100,7 +104,6 @@ public class Atendimento {
 	public void setParecer(String parecer) {
 		this.parecer = parecer;
 	}
-	
 	
 	
 }
