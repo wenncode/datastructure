@@ -10,15 +10,14 @@ public class Principal {
 	static TADLista listaTodos = new TADLista();
 	TADLista listaFinalizados = new TADLista();
 	
-	public static void main(String[] args) throws IOException {
-		String sair = null;
-		int proxOp;
+	public static void main(String[] args) throws IOException, InterruptedException {
+		int sair = 0;
 		do {
 			desenhaMenu();
-			proxOp = desenhaMenu();
-		
-		novaChegada();
-		} while (sair != "sim");
+			System.out.println("[ VOCÊ DESEJA CONTINUAR NO SISTEMA? ]");
+			System.out.println("[ [1] SIM || [2] NÃO ]");
+			sair = scan.read();
+		} while (sair != 1);
 	}
 	public static void novaChegada() {
 		String nome;
@@ -47,18 +46,18 @@ public class Principal {
 	public static void desenhaMenu() throws IOException, InterruptedException {
 		int menuOp = 0;
 		do { 
-			System.out.println("SELECIONE A OPÇÃO DESEJADA: ");
+			System.out.println("SELECIONE A OPÃ‡ÃƒO DESEJADA: ");
 			System.out.println("[ [1] CADASTRAR NOVO PACIENTE ]");
 			System.out.println("[ [2] PESQUISAR PACIENTE ]");
 			System.out.println("[ [3] INICIAR UM NOVO ATENDIMENTO ]");
 			System.out.println("[ [4] CHAMAR PACIENTE PARA A TRIAGEM ] ");
 			System.out.println("[ [5] CHAMAR PACIENTE PARA CONSULTA ]");
 			System.out.println("[ [6] LIBERAR PACIENTE ]");
-			System.out.println("[ [7] RELATÓRIOS ]");
+			System.out.println("[ [7] RELATÃ“RIOS ]");
 			menuOp = scan.read();
 			if (menuOp < 1 || menuOp > 7) {
 				Runtime.getRuntime().exec("cls");
-				System.out.println("[ INPUT INVÁLIDO. SISTEMA PARADO POR 2 SEGUNDOS.]");
+				System.out.println("[ INPUT INVÃ�LIDO. SISTEMA PARADO POR 2 SEGUNDOS.]");
 				Thread.currentThread();
 				Thread.sleep(2000);
 			}				
