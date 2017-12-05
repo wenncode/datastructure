@@ -62,7 +62,11 @@ public class TADFila {
 			dequeue();
 		}
 	}
-	
+	public static void getPrioridadeObjeto(Atendimento dado, int prioridade) {
+		if (dado.getPrioridade() == prioridade) {
+			int ano = dado.getPessoa().getAnoNascimento();
+		}
+	}
 	
 	
 }

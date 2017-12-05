@@ -11,6 +11,7 @@ public class Principal {
 	static TADFila filaPrioridade5 = new TADFila();
 	static TADListaPacientes listaPacientes = new TADListaPacientes();
 	static TADLista listaFinalizados = new TADLista();
+	static int contPaciente;
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		desenhaMenu();
@@ -28,6 +29,7 @@ public class Principal {
 		anoNascimento = scan1.nextInt();
 		Paciente pessoa = new Paciente(nome, cpf, anoNascimento);
 		listaPacientes.addEndPacient(pessoa);
+		contPaciente++;
 		System.out.println("[ CADASTRO REALIZADO ]");
 		return pessoa;
 	}
@@ -186,5 +188,108 @@ public class Principal {
 		ultimo1.setHoraSaida(scan1.nextInt());
 		System.out.println("Digite os minutos de saída do paciente: (Formato 60 minutos)");
 		ultimo1.setMinutoSaida(scan1.nextInt());
+	}
+	public static void telaRelatorio() {
+		int menuOpcao = 0;
+		System.out.println("[ [1] Tempo médio de espera para atendimento ] ");
+		System.out.println("[ [2] Tempo médio de atendimento ]");
+		System.out.println("[ [3] Tempo médio de atendimento nas filas de prioridade ]");
+		System.out.println("[ [4] Imprimir em arquivo texto os pacientes cadastrados ]");
+		System.out.println("[ [5] Atendimentos ocorrendo nesse momento");
+		System.out.println("[ [6] Relação de idade e prioridade de atendimento");
+		System.out.println("[ [SELECIONE] ]");
+		do {
+			menuOpcao = scan1.nextInt();
+			if (menuOpcao < 1 || menuOpcao > 7) {
+				System.out.println("[ INPUT INVÁLIDO ]");
+			}
+		} while (menuOpcao >= 1 && menuOpcao <= 7);
+		if (menuOpcao == 1) {
+			
+		}
+	}
+	public static void relatorio1(TADLista listaFinalizados) {
+		int somaChegadaHora = 0;
+		int somaChegadaMinutos = 0;
+		int somaChegada = 0;
+		int somaAtendimentoHora = 0;
+		int somaAtendimentoMinuto = 0;
+		int somaAtendimento = 0;
+		double media1 = 0;
+		for (int i = 0; i < listaFinalizados.size(); i++) {
+			somaChegadaHora += (listaFinalizados.searchByPosition(i).getHoraChegada()) * 60;
+			somaChegadaMinutos += listaFinalizados.searchByPosition(i).getMinutoChegada();
+			somaAtendimentoHora += (listaFinalizados.searchByPosition(i).getHoraAtendimento()) * 60;
+			somaAtendimentoMinuto += listaFinalizados.searchByPosition(i).getMinutoAtendimento();
+		}
+		somaChegada = somaChegadaHora + somaChegadaMinutos;
+		somaAtendimento = somaAtendimentoHora + somaAtendimentoMinuto;
+		media1 = (somaAtendimento - somaChegada) / listaFinalizados.size();
+	}
+	public static void relatorio2(TADLista listaFinalizados) {
+		int somaAtendimentoHora = 0;
+		int somaAtendimentoMinuto = 0;
+		int somaSaidaHora = 0;
+		int somaSaidaMinutos = 0;
+		int somaAtendimento = 0;
+		int somaSaida = 0;
+		double media2 = 0;
+		for (int i = 0; i < listaFinalizados.size(); i++) {
+			somaSaidaHora += (listaFinalizados.searchByPosition(i).getHoraSaida()) * 60;
+			somaSaidaMinutos += listaFinalizados.searchByPosition(i).getMinutoSaida();
+			somaAtendimentoHora += (listaFinalizados.searchByPosition(i).getHoraAtendimento()) * 60;
+			somaAtendimentoMinuto += listaFinalizados.searchByPosition(i).getMinutoAtendimento();
+		}
+		somaSaida = somaSaidaHora + somaSaidaMinutos;
+		somaAtendimento = somaAtendimentoHora + somaAtendimentoMinuto;
+		media2 = (somaSaida - somaAtendimento) / listaFinalizados.size();
+		}
+	public static void relatorio3 (TADLista listaFinalizados) {
+		for (int j= 0; j < listaFinalizados.size(); j++) {
+			
+		}
+	}
+	public static int relatorioAndamento() {
+		return filaPrioridade1.size() + filaPrioridade2.size() + filaPrioridade3.size() + filaPrioridade4.size() + filaPrioridade5.size();
+	}
+	public static void idadePorFila() {
+		int cont1 = 0;
+		int cont2 = 0;
+		int cont3 = 0;
+		int cont4 = 0;
+		int cont5 = 0;
+		int vetsoma1 = 0;
+		int vetsoma2 = 0;
+		int vetsoma3 = 0;
+		int vetsoma4 = 0;
+		int vetsoma5 = 0;
+		int vet1[] = new int[listaFinalizados.size()];
+		int vet2[] = new int[listaFinalizados.size()];
+		int vet3[] = new int[listaFinalizados.size()];
+		int vet4[] = new int[listaFinalizados.size()];
+		int vet5[] = new int[filaPrioridade5.size()];
+		for (int i = 0; i < listaFinalizados.size(); i++) {
+			if (listaFinalizados.searchByPosition(i).getPrioridade() == 1) {
+				cont1++;
+				vet1[i] = listaFinalizados.searchByPosition(i).getPessoa().getAnoNascimento();
+				vetsoma1 += vet1[i];
+			} else if (listaFinalizados.searchByPosition(i).getPrioridade() == 2) {
+				cont2++;
+				vet2[i] = listaFinalizados.searchByPosition(i).getPessoa().getAnoNascimento();
+				vetsoma2 += vet2[i];
+			} else if (listaFinalizados.searchByPosition(i).getPrioridade() == 3) {
+				cont3++;
+				vet3[i] = listaFinalizados.searchByPosition(i).getPessoa().getAnoNascimento();
+				vetsoma3 += vet3[i];
+			} else if (listaFinalizados.searchByPosition(i).getPrioridade() == 4) {
+				cont4++;
+				vet4[i] = listaFinalizados.searchByPosition(i).getPessoa().getAnoNascimento();
+				vetsoma4 += vet4[i];
+			} else if (listaFinalizados.searchByPosition(i).getPrioridade() == 5) {
+				cont5++;
+				vet5[i] = listaFinalizados.searchByPosition(i).getPessoa().getAnoNascimento();
+				vetsoma5 += vet5[i];
+			}
+		}
 	}
 }
